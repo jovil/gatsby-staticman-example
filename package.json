@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-staticman-example",
+  "private": true,
+  "description": "Static comments with Gatsby using Staticman",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "gatsby": "^2.21.37",
+    "gatsby-plugin-sass": "^2.3.2",
+    "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-relative-images": "^0.3.0",
+    "gatsby-source-filesystem": "2.0.28",
+    "gatsby-transformer-remark": "^2.3.8",
+    "node-sass": "^4.14.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
