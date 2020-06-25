@@ -7,10 +7,10 @@ const Comments = (props) => {
       <form
         className={s.form}
         method="POST"
-        action="https://agile-basin-32146.herokuapp.com/v2/entry/jovil/gatsby-staticman-example/master/comments"
+        action="https://<app_name>.herokuapp.com/v2/entry/<github_username>/<github_repo>/master/comments"
       >
         <input
-          name="options[slug]"
+          name="fields[slug]"
           type="hidden"
           value={props.slug}
         />
@@ -24,6 +24,21 @@ const Comments = (props) => {
         <textarea name="fields[message]" placeholder="Comment" required />
         <button type="submit">Submit Comment</button>
       </form>
+      {props.comments && props.comments.length ? (
+        props.comments.map(comment => (
+          <div key={comment.node._id}>
+            <p>
+              Name: {comment.node.name}
+              <br />
+              Comment: {comment.node.message}
+              <br />
+              Date: {comment.node.date}
+            </p>
+          </div>
+        ))
+      ) : (
+          <p>No comments yet.</p>
+        )}
     </div>
   )
 }

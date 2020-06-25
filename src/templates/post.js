@@ -10,6 +10,8 @@ export const query = graphql`
     markdownRemark (
       fields: { slug: { eq: $slug } }
     ) {
+      id
+      html
       frontmatter {
         title
         date
@@ -17,10 +19,22 @@ export const query = graphql`
       fields {
         slug
       }
-      html
+    }
+    allCommentsYaml (
+      filter: { slug: { eq: $slug } }
+    ) {
+      edges {
+        node {
+          _id
+          name
+          email
+          message
+          date
+        } 
+      }
     }
   }
-  `
+`
 
 const Blog = (props) => {
   return (
@@ -29,7 +43,7 @@ const Blog = (props) => {
       <small>{props.data.markdownRemark.frontmatter.date}</small>
       <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}>
       </div>
-      <Comments slug={props.data.markdownRemark.fields.slug} />
+      <Comments slug={props.data.markdownRemark.fields.slug} comments={props.data.allCommentsYaml.edges} />
     </Layout>
   )
 }
